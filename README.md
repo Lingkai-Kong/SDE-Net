@@ -1,5 +1,5 @@
 # SDE-Net
-This repo contains our code for paper: 
+This repo contains our code for paper (still updating): 
 
 Lingkai Kong, Jimeng Sun, Chao Zhang, SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates, ICML2020.
 ![SDE-Net](figure/illustration.png)
