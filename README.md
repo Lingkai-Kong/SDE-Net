@@ -17,7 +17,7 @@ python resnet_mnist.py
 ```
 Evaluation:
 ```
-python test_detection.py --pre_trained_net save_resnet_mnist --network resnet --dataset mnist --out_dataset svhn
+python test_detection.py --pre_trained_net save_resnet_mnist/final_model --network resnet --dataset mnist --out_dataset svhn
 ```
 Training SDE-Net:
 ```
@@ -25,7 +25,7 @@ python sdenet_mnist.py
 ```
 Evaluation:
 ```
-python test_detection.py --pre_trained_net save_sdenet_mnist --network sdenet --dataset mnist --out_dataset svhn
+python test_detection.py --pre_trained_net save_sdenet_mnist/final_model --network sdenet --dataset mnist --out_dataset svhn
 ```
 
 #### SVHN
@@ -38,7 +38,7 @@ python resnet_svhn.py
 ```
 Evaluation:
 ```
-python test_detection.py --pre_trained_net save_resnet_svhn --network resnet --dataset svhn --out_dataset cifar10
+python test_detection.py --pre_trained_net save_resnet_svhn/final_model --network resnet --dataset svhn --out_dataset cifar10
 ```
 Training SDE-Net:
 ```
@@ -46,7 +46,7 @@ python sdenet_mnist.py
 ```
 Evaluation:
 ```
-python test_detection.py --pre_trained_net save_sdenet_svhn --network sdenet --dataset svhn --out_dataset cifar10
+python test_detection.py --pre_trained_net save_sdenet_svhn/final_model --network sdenet --dataset svhn --out_dataset cifar10
 ```
 
 
