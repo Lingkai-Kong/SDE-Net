@@ -21,7 +21,7 @@ import argparse
 import models
 import data_loader
 
-parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
+parser = argparse.ArgumentParser(description='PyTorch SDE-Net Training')
 parser.add_argument('--lr', default=0.1, type=float, help='learning rate of drift net')
 parser.add_argument('--lr2', default=0.01, type=float, help='learning rate of diffusion net')
 parser.add_argument('--training_out', action='store_false', default=True, help='training_with_out')
@@ -32,7 +32,6 @@ parser.add_argument('--batch_size', type=int, default=128, help='input batch siz
 parser.add_argument('--num_samples', type=int, default=5, help='number of samples of out-of-domain data training')
 parser.add_argument('--imageSize', type=int, default=28, help='the height / width of the input image to network')
 parser.add_argument('--test_batch_size', type=int, default=1000)
-parser.add_argument('--log-interval', type=int, default=100, help='how many batches to wait before logging training status')
 parser.add_argument('--gpu', type=int, default=0)
 parser.add_argument('--seed', type=float, default=0)
 parser.add_argument('--droprate', type=float, default=0.1, help='learning rate decay')
