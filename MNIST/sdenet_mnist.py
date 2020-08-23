@@ -27,9 +27,8 @@ parser.add_argument('--lr2', default=0.01, type=float, help='learning rate of di
 parser.add_argument('--training_out', action='store_false', default=True, help='training_with_out')
 parser.add_argument('--epochs', type=int, default=40, help='number of epochs to train')
 parser.add_argument('--eva_iter', default=5, type=int, help='number of passes when evaluation')
-parser.add_argument('--dataset_inDomain', default='mnist', help='mnist')
+parser.add_argument('--dataset_inDomain', default='mnist', help='training dataset')
 parser.add_argument('--batch_size', type=int, default=128, help='input batch size for training')
-parser.add_argument('--num_samples', type=int, default=5, help='number of samples of out-of-domain data training')
 parser.add_argument('--imageSize', type=int, default=28, help='the height / width of the input image to network')
 parser.add_argument('--test_batch_size', type=int, default=1000)
 parser.add_argument('--gpu', type=int, default=0)
@@ -70,7 +69,7 @@ optimizer_F = optim.SGD([ {'params': net.downsampling_layers.parameters()}, {'pa
 
 optimizer_G = optim.SGD([ {'params': net.diffusion.parameters()}], lr=args.lr2, momentum=0.9, weight_decay=5e-4)
 
-#use a smaller sigma during training for stability
+#use a smaller sigma during training for training stability
 net.sigma = 20
 
 # Training
@@ -99,12 +98,12 @@ def train(epoch):
     #training with out-of-domain data
         label = torch.full((args.batch_size,1), real_label, device=device)
         optimizer_G.zero_grad()
-        predict_in = net(inputs, training_diffusion=True, num_samples = args.num_samples)
+        predict_in = net(inputs, training_diffusion=True)
         loss_in = criterion2(predict_in, label)
         loss_in.backward()
         label.fill_(fake_label)
         inputs_out = 2*torch.randn(args.batch_size,1, args.imageSize, args.imageSize, device = device)+inputs
-        predict_out = net(inputs_out, training_diffusion=True, num_samples = args.num_samples)
+        predict_out = net(inputs_out, training_diffusion=True)
         loss_out = criterion2(predict_out, label)
         loss_out.backward()
         train_loss_out += loss_out.item()

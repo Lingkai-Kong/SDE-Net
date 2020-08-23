@@ -118,7 +118,7 @@ class Flatten(nn.Module):
     
     
 class SDENet_mnist(nn.Module):
-    def __init__(self, layer_depth, num_classes=10, dim = 64, disable_diffusion = False):
+    def __init__(self, layer_depth, num_classes=10, dim = 64):
         super(SDENet_mnist, self).__init__()
         self.layer_depth = layer_depth
         self.downsampling_layers = nn.Sequential(
@@ -131,13 +131,12 @@ class SDENet_mnist(nn.Module):
             nn.Conv2d(dim, dim, 4, 2, 1),
         )
         self.drift = Drift(dim)
-        if disable_diffusion == False:
-            self.diffusion = Diffusion(dim, dim)
+        self.diffusion = Diffusion(dim, dim)
         self.fc_layers = nn.Sequential(norm(dim), nn.ReLU(inplace=True), nn.AdaptiveAvgPool2d((1, 1)), Flatten(), nn.Linear(dim, 10))
         self.deltat = 6./self.layer_depth
         self.apply(init_params)
         self.sigma = 500
-    def forward(self, x, training_diffusion=False, num_samples = 0):
+    def forward(self, x, training_diffusion=False):
         out = self.downsampling_layers(x)
         if not training_diffusion:
             t = 0
