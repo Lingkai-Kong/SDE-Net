@@ -90,20 +90,16 @@ def test(epoch):
         for batch_idx, (inputs, targets) in enumerate(test_loader):
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = net(inputs)
-            loss = criterion(outputs, targets)
             outputs = 0
             for j in range(args.eva_iter):
                 outputs = outputs + F.softmax(net(inputs), dim=1)
             outputs = outputs/args.eva_iter
-            test_loss += loss.item()
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
-
-        test_loss = test_loss/len(test_loader)
  
-        print('Test epoch: {}\tLoss: {:.6f} | Acc: {:.6f} ({}/{})'
-        .format(epoch, test_loss, 100.*correct/total, correct, total))
+        print('Test epoch: {}| Acc: {:.6f} ({}/{})'
+        .format(epoch, 100.*correct/total, correct, total))
 
 
 for epoch in range(0, args.epochs):

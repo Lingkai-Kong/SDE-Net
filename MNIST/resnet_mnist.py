@@ -76,7 +76,6 @@ def train(epoch):
 
 def test(epoch):
     net.eval()
-    test_loss = 0
     correct = 0
     total = 0
     with torch.no_grad():
@@ -87,8 +86,8 @@ def test(epoch):
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-        print('Test epoch: {}\tLoss: {:.6f} | Acc: {} ({}/{}) '
-        .format(epoch, test_loss, 100.*correct/total, correct, total))
+        print('Test epoch: {}| Acc: {} ({}/{}) '
+        .format(epoch, 100.*correct/total, correct, total))
            
 
 
