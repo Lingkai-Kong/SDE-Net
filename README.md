@@ -1,6 +1,6 @@
 # SDE-Net
 This repo contains our code for paper: [SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates (ICML2020)] 
-![SDE-Net](figure/illustration.pdf)
+![SDE-Net](figure/illustration.png)
 
 
 ## Training & Evaluation
