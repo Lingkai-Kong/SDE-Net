@@ -26,7 +26,6 @@ parser.add_argument('--lr', default=0.1, type=float, help='learning rate of drif
 parser.add_argument('--lr2', default=0.01, type=float, help='learning rate of diffusion net')
 parser.add_argument('--training_out', action='store_false', default=True, help='training_with_out')
 parser.add_argument('--epochs', type=int, default=40, help='number of epochs to train')
-parser.add_argument('--sigma', type=float, default=5, help='number of epochs to train')
 parser.add_argument('--eva_iter', default=5, type=int, help='number of passes when evaluation')
 parser.add_argument('--dataset_inDomain', default='mnist', help='mnist')
 parser.add_argument('--batch_size', type=int, default=128, help='input batch size for training')
@@ -119,7 +118,6 @@ def train(epoch):
 
 def test(epoch):
     net.eval()
-    test_loss = 0
     correct = 0
     total = 0
     with torch.no_grad():
@@ -131,14 +129,12 @@ def test(epoch):
                 outputs = outputs + F.softmax(current_batch, dim = 1)
 
             outputs = outputs/args.eva_iter
-            loss = criterion(outputs, targets)
-            test_loss += loss.item()
             _, predicted = outputs.max(1)
             total += targets.size(0)
             correct += predicted.eq(targets).sum().item()
 
-        print('Test epoch: {}\tLoss: {:.6f} | Acc: {:.6f} ({}/{})'
-        .format(epoch, test_loss, 100.*correct/total, correct, total))
+        print('Test epoch: {} | Acc: {:.6f} ({}/{})'
+        .format(epoch, 100.*correct/total, correct, total))
 
 
 for epoch in range(0, args.epochs):
