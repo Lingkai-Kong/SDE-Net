@@ -83,6 +83,7 @@ python test_detection.py --pre_trained_net save_sdenet_svhn/final_model --networ
 cd YearMSD
 ```
 Download and unzip the dataset from https://archive.ics.uci.edu/ml/machine-learning-databases/00203/
+
 Training SDE-Net:
 ```
 python SDE_regression.py
@@ -93,5 +94,5 @@ python test_detection_sde.py --pre_trained_net save_sdenet_msd/final_model
 ```
 
 
-###Active Learning:
+#### Active Learning:
 Coming soon
