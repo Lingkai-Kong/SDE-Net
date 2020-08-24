@@ -56,7 +56,7 @@ python resnet_droput_svhn.py
 ```
 Evaluation:
 ```
-python test_detection.py --pre_trained_net save_resnet_dropout_svhn/final_model --network mc_dropout --dataset mnist --out_dataset svhn
+python test_detection.py --pre_trained_net save_resnet_dropout_svhn/final_model --network mc_dropout --dataset svhn --out_dataset cifar10
 
 ```
 Training SDE-Net:
