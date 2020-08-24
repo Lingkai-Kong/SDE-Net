@@ -2,6 +2,9 @@
 This repo contains our code for paper: 
 
 Lingkai Kong, Jimeng Sun and Chao Zhang, SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates, ICML2020.
+
+-[Video](https://www.youtube.com/watch?v=RylZA4Ioc3M)
+
 ![SDE-Net](figure/illustration.png)
 
 
