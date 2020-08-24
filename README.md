@@ -90,9 +90,7 @@ Evaluation:
 python test_detection_sde.py --pre_trained_net save_sdenet_msd/final_model
 ```
 
-
-#### Active Learning:
-Coming soon
+#### TODO: Active Learning:
 
 
 ## Citation
