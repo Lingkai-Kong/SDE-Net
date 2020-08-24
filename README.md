@@ -11,13 +11,23 @@ Lingkai Kong, Jimeng Sun, Chao Zhang, SDE-Net: Equipping Deep Neural Network wit
 ```
 cd MNIST
 ```
-Training vanilla DNN:
+Training vanilla ResNet:
 ```
 python resnet_mnist.py 
 ```
 Evaluation:
 ```
 python test_detection.py --pre_trained_net save_resnet_mnist/final_model --network resnet --dataset mnist --out_dataset svhn
+
+```
+Training MC-dropout:
+```
+python resnet_droput_mnist.py 
+```
+Evaluation:
+```
+python test_detection.py --pre_trained_net save_resnet_dropout_mnist/final_model --network mc_dropout --dataset mnist --out_dataset svhn
+
 ```
 Training SDE-Net:
 ```
@@ -32,13 +42,22 @@ python test_detection.py --pre_trained_net save_sdenet_mnist/final_model --netwo
 ```
 cd SVHN
 ```
-Training vanilla DNN:
+Training vanilla ResNet:
 ```
 python resnet_svhn.py 
 ```
 Evaluation:
 ```
 python test_detection.py --pre_trained_net save_resnet_svhn/final_model --network resnet --dataset svhn --out_dataset cifar10
+```
+Training MC-dropout:
+```
+python resnet_droput_svhn.py 
+```
+Evaluation:
+```
+python test_detection.py --pre_trained_net save_resnet_dropout_svhn/final_model --network mc_dropout --dataset mnist --out_dataset svhn
+
 ```
 Training SDE-Net:
 ```
