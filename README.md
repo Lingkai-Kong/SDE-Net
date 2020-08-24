@@ -4,17 +4,7 @@ This repo contains our code for paper:
 Lingkai Kong, Jimeng Sun, Chao Zhang, SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates, ICML2020.
 ![SDE-Net](figure/illustration.png)
 
-## Citation
 
-Please cite the following paper if you find this repo helpful. Thanks!
-```
-@inproceedings{kong2020sdenet,
-  title={SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates},
-  author={Lingkai Kong, Jimeng Sun and Zhang, Chao},
-  booktitle={International Conference on Machine Learning (ICML)},
-  year={2020}
-}
-```
 
 ## Training & Evaluation
 
@@ -83,7 +73,14 @@ python test_detection.py --pre_trained_net save_sdenet_svhn/final_model --networ
 cd YearMSD
 ```
 Download and unzip the dataset from https://archive.ics.uci.edu/ml/machine-learning-databases/00203/
-
+Training MC-dropout:
+```
+python DNN_mc.py
+```
+Evaluation:
+```
+python test_detection_mc.py --pre_trained_net save_mc_msd/final_model
+```
 Training SDE-Net:
 ```
 python SDE_regression.py
@@ -96,3 +93,15 @@ python test_detection_sde.py --pre_trained_net save_sdenet_msd/final_model
 
 #### Active Learning:
 Coming soon
+
+
+## Citation
+Please cite the following paper if you find this repo helpful. Thanks!
+```
+@inproceedings{kong2020sdenet,
+  title={SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates},
+  author={Lingkai Kong, Jimeng Sun and Zhang, Chao},
+  booktitle={International Conference on Machine Learning (ICML)},
+  year={2020}
+}
+```
