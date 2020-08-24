@@ -1,9 +1,20 @@
 # SDE-Net
-This repo contains our code for paper (still updating): 
+This repo contains our code for paper: 
 
 Lingkai Kong, Jimeng Sun, Chao Zhang, SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates, ICML2020.
 ![SDE-Net](figure/illustration.png)
 
+## Citation
+
+Please cite the following paper if you find this repo helpful. Thanks!
+```
+@inproceedings{kong2020sdenet,
+  title={SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates},
+  author={Lingkai Kong, Jimeng Sun and Zhang, Chao},
+  booktitle={International Conference on Machine Learning (ICML)},
+  year={2020}
+}
+```
 
 ## Training & Evaluation
 
@@ -57,7 +68,6 @@ python resnet_droput_svhn.py
 Evaluation:
 ```
 python test_detection.py --pre_trained_net save_resnet_dropout_svhn/final_model --network mc_dropout --dataset svhn --out_dataset cifar10
-
 ```
 Training SDE-Net:
 ```
@@ -68,17 +78,20 @@ Evaluation:
 python test_detection.py --pre_trained_net save_sdenet_svhn/final_model --network sdenet --dataset svhn --out_dataset cifar10
 ```
 
-
-
-
-## Citation
-
-Please cite the following paper if you find this repo helpful. Thanks!
+#### YearMSD
 ```
-@inproceedings{kong2020sdenet,
-  title={SDE-Net: Equipping Deep Neural Network with Uncertainty Estimates},
-  author={Lingkai Kong, Jimeng Sun and Zhang, Chao},
-  booktitle={International Conference on Machine Learning (ICML)},
-  year={2020}
-}
+cd YearMSD
 ```
+Download and unzip the dataset from https://archive.ics.uci.edu/ml/machine-learning-databases/00203/
+Training SDE-Net:
+```
+python SDE_regression.py
+```
+Evaluation:
+```
+python test_detection_sde.py --pre_trained_net save_sdenet_msd/final_model
+```
+
+
+###Active Learning:
+Coming soon
