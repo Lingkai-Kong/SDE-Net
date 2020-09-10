@@ -70,7 +70,7 @@ optimizer_G = optim.SGD([ {'params': net.diffusion.parameters()}], lr=args.lr2, 
 
 
 # use a smaller sigma during training for stability
-net.sigma = 5
+net.sigma = 1
 
 # Training
 def train(epoch):
