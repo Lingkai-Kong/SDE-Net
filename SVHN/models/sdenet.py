@@ -141,7 +141,7 @@ class SDENet(nn.Module):
         self.fc_layers = nn.Sequential(norm(dim), nn.ReLU(inplace=True), nn.AdaptiveAvgPool2d((1, 1)), Flatten(), nn.Linear(dim, 10))
         self.deltat = 6./self.layer_depth
         self.apply(init_params)
-        self.sigma = 500
+        self.sigma = 50
         
     def forward(self, x, training_diffusion=False):
         out = self.downsampling_layers(x)
