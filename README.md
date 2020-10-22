@@ -100,7 +100,7 @@ python test_detection_sde.py --pre_trained_net save_sdenet_msd/final_model
 ## Citation
 Please cite the following paper if you find this repo helpful. Thanks!
 ```
-@inproceedings{kong2020sdenet,
+@inproceedings{kong2020sde,
   title={SDE-Net: Equipping Deep Neural Networks with Uncertainty Estimates},
   author={Kong, Lingkai and Sun, Jimeng and Zhang, Chao},
   booktitle={International Conference on Machine Learning},
